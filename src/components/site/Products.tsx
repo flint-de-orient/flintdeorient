@@ -1,19 +1,19 @@
 import { Hotel, Hospital, Package, Truck, ShoppingBag, Calculator, Users2, Briefcase, Building2, Brain, FlaskConical, Bot, Sparkles } from "lucide-react";
 
 const products = [
-  { icon: Brain, name: "Prime AI & ML Suite", desc: "Production-ready AI/ML products and solutions for any industry." },
-  { icon: FlaskConical, name: "Prime AI Research Lab", desc: "Applied AI/ML research, experimentation & rapid prototyping." },
-  { icon: Bot, name: "Prime Chatbot Studio", desc: "Custom AI chatbots with RAG and multi-channel deployment." },
-  { icon: Sparkles, name: "Prime AI Agents", desc: "Design and deploy autonomous, tool-using AI agents at scale." },
-  { icon: Hotel, name: "Prime Hotel", desc: "End-to-end hotel management & bookings." },
-  { icon: Hospital, name: "Prime Hospital", desc: "Patient records, OPD, IPD & billing." },
-  { icon: Package, name: "Prime Inventory", desc: "Real-time inventory & warehouse control." },
-  { icon: Truck, name: "Prime Transport", desc: "Fleet, dispatch & logistics tracking." },
-  { icon: ShoppingBag, name: "Prime eCommerce", desc: "Modern storefronts with full backend." },
-  { icon: Calculator, name: "Prime Accounts", desc: "GST-ready accounting & financials." },
-  { icon: Users2, name: "Prime CRM", desc: "Leads, pipeline & customer journeys." },
-  { icon: Briefcase, name: "Prime HRM", desc: "Payroll, attendance & employee lifecycle." },
-  { icon: Building2, name: "Prime Real Estate", desc: "Listings, leads & site visit management." },
+  { icon: Brain, name: "AI & ML Suite", desc: "Production-ready AI/ML products and solutions for any industry." },
+  { icon: FlaskConical, name: "AI Research Lab", desc: "Applied AI/ML research, experimentation & rapid prototyping." },
+  { icon: Bot, name: "Chatbot Studio", desc: "Custom AI chatbots with RAG and multi-channel deployment." },
+  { icon: Sparkles, name: "AI Agents", desc: "Design and deploy autonomous, tool-using AI agents at scale." },
+  { icon: Hotel, name: "Hotel", desc: "End-to-end hotel management & bookings." },
+  { icon: Hospital, name: "Hospital", desc: "Patient records, OPD, IPD & billing." },
+  { icon: Package, name: "Inventory", desc: "Real-time inventory & warehouse control." },
+  { icon: Truck, name: "Transport", desc: "Fleet, dispatch & logistics tracking." },
+  { icon: ShoppingBag, name: "eCommerce", desc: "Modern storefronts with full backend." },
+  { icon: Calculator, name: "Accounts", desc: "GST-ready accounting & financials." },
+  { icon: Users2, name: "CRM", desc: "Leads, pipeline & customer journeys." },
+  { icon: Briefcase, name: "HRM", desc: "Payroll, attendance & employee lifecycle." },
+  { icon: Building2, name: "Real Estate", desc: "Listings, leads & site visit management." },
 ];
 
 export const Products = () => {
