@@ -9,7 +9,6 @@ const services = [
   { icon: Sparkles, title: "AI Agent Design and Deployment", desc: "Autonomous, tool-using agents designed, evaluated, and deployed at scale." },
   { icon: Search, title: "Search Engine Optimization", desc: "On-page & off-page SEO strategies with keyword-optimized content that ranks." },
   { icon: Share2, title: "Social Media Marketing", desc: "Engagement-driven campaigns across Facebook, Instagram, and LinkedIn." },
-  { icon: FileText, title: "Content Marketing & Automation", desc: "Plagiarism-free expert content that drives traffic and converts visitors." },
 ];
 
 const allServices: { category: string; items: { name: string; desc: string }[] }[] = [
