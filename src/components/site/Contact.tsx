@@ -47,7 +47,7 @@ export const Contact = () => {
             {[
               { icon: MapPin, label: "Visit us", value: "Unit 320, PS Abacus, New Town, Kolkata 700161" },
               { icon: Phone, label: "Call us", value: "+91 8777654651" },
-              { icon: Mail, label: "Email us", value: "info@flintdeorient.com" },
+              { icon: Mail, label: "Email us", value: "hello@flintdeorient.com" },
             ].map((item) => (
               <div key={item.label} className="glass-card rounded-2xl p-6 flex gap-4 items-start">
                 <div className="w-11 h-11 rounded-xl bg-gradient-gold flex items-center justify-center flex-shrink-0">
