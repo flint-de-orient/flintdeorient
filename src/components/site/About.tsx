@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const points = [
   "Crafted strategy according to Goal",
@@ -51,9 +52,14 @@ export const About = () => {
               </li>
             ))}
           </ul>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-wrap gap-4">
             <Button variant="hero" size="lg" asChild>
               <a href="#contact">Contact With Us</a>
+            </Button>
+            <Button variant="outlineGlow" size="lg" asChild>
+              <Link to="/about">
+                Know More <ArrowRight size={16} />
+              </Link>
             </Button>
           </div>
         </div>
