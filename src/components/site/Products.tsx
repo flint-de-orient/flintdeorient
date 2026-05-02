@@ -1,20 +1,5 @@
-import { Hotel, Hospital, Package, Truck, ShoppingBag, Calculator, Users2, Briefcase, Building2, Brain, FlaskConical, Bot, Sparkles } from "lucide-react";
-
-const products = [
-  { icon: Brain, name: "AI & ML Suite", desc: "Production-ready AI/ML products and solutions for any industry." },
-  { icon: FlaskConical, name: "AI Research Lab", desc: "Applied AI/ML research, experimentation & rapid prototyping." },
-  { icon: Bot, name: "Chatbot Studio", desc: "Custom AI chatbots with RAG and multi-channel deployment." },
-  { icon: Sparkles, name: "AI Agents", desc: "Design and deploy autonomous, tool-using AI agents at scale." },
-  { icon: Hotel, name: "Hotel", desc: "End-to-end hotel management & bookings." },
-  { icon: Hospital, name: "Hospital", desc: "Patient records, OPD, IPD & billing." },
-  { icon: Package, name: "Inventory", desc: "Real-time inventory & warehouse control." },
-  { icon: Truck, name: "Transport", desc: "Fleet, dispatch & logistics tracking." },
-  { icon: ShoppingBag, name: "eCommerce", desc: "Modern storefronts with full backend." },
-  { icon: Calculator, name: "Accounts", desc: "GST-ready accounting & financials." },
-  { icon: Users2, name: "CRM", desc: "Leads, pipeline & customer journeys." },
-  { icon: Briefcase, name: "HRM", desc: "Payroll, attendance & employee lifecycle." },
-  { icon: Building2, name: "Real Estate", desc: "Listings, leads & site visit management." },
-];
+import { Link } from "react-router-dom";
+import { products } from "@/data/products";
 
 export const Products = () => {
   return (
@@ -30,15 +15,19 @@ export const Products = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((p) => (
-            <div key={p.name} className="glass-card rounded-2xl p-6 flex gap-4 items-start">
-              <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center flex-shrink-0">
+            <Link
+              key={p.name}
+              to={`/products/${p.slug}`}
+              className="glass-card rounded-2xl p-6 flex gap-4 items-start group transition-all hover:border-gold/50 hover:shadow-glow-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center flex-shrink-0 group-hover:border-gold/50 transition-colors">
                 <p.icon size={20} className="text-gold" />
               </div>
               <div>
-                <h3 className="font-semibold text-base mb-1">{p.name}</h3>
+                <h3 className="font-semibold text-base mb-1 group-hover:text-gold transition-colors">{p.name}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
