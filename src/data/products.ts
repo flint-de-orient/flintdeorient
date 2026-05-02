@@ -1,4 +1,4 @@
-import { Hotel, Hospital, Package, Truck, ShoppingBag, Calculator, Users2, Briefcase, Building2, Brain, FlaskConical, Bot, Sparkles, type LucideIcon } from "lucide-react";
+import { Hotel, Hospital, Package, Truck, ShoppingBag, Calculator, Users2, Briefcase, Building2, Brain, FlaskConical, Bot, Sparkles, GraduationCap, School as SchoolIcon, type LucideIcon } from "lucide-react";
 
 export interface Product {
   slug: string;
@@ -247,6 +247,42 @@ export const products: Product[] = [
       ],
       benefits: ["Higher lead conversion", "Faster booking process", "Transparent customer experience", "Real-time inventory view"],
       cta: "Sell your next project the modern way.",
+    },
+  },
+  {
+    slug: "school",
+    icon: SchoolIcon,
+    name: "School",
+    desc: "Admissions, attendance, exams & parent engagement.",
+    blog: {
+      tagline: "A modern operating system for K–12 schools.",
+      intro:
+        "Our School platform brings admissions, academics, attendance, exams, fees, transport, and parent communication into one secure, easy-to-use system — designed for principals, teachers, students, and parents alike.",
+      sections: [
+        { heading: "Academics made simple", body: "Timetables, lesson plans, assignments, and gradebooks help teachers focus on teaching while keeping records organized and accessible." },
+        { heading: "Parents in the loop", body: "A dedicated parent app shares attendance, marks, homework, fee dues, and announcements in real time — building trust and engagement." },
+        { heading: "Operations on autopilot", body: "Fee collection, transport routes, library, and hostel management run smoothly with automation and clear dashboards for administrators." },
+      ],
+      benefits: ["Paperless admissions", "Real-time parent updates", "Automated fee reminders", "Insights for school leadership"],
+      cta: "Modernize your school with one trusted platform.",
+    },
+  },
+  {
+    slug: "college",
+    icon: GraduationCap,
+    name: "College",
+    desc: "Admissions, courses, attendance & examination management.",
+    blog: {
+      tagline: "Run your college or university with clarity and control.",
+      intro:
+        "Our College platform handles the full higher-education lifecycle — from online admissions and course registration to attendance, internal assessments, examinations, results, and alumni engagement.",
+      sections: [
+        { heading: "End-to-end admissions", body: "Online applications, document verification, merit lists, counseling, and seat allotment — all managed from a single dashboard." },
+        { heading: "Academic management", body: "Multi-program, multi-semester support with credit-based grading, elective management, and faculty workload planning." },
+        { heading: "Examinations & results", body: "Hall ticket generation, internal/external marks, moderation workflows, and instant result publishing with analytics." },
+      ],
+      benefits: ["Faster admission cycles", "Accurate result processing", "Higher faculty productivity", "Stronger alumni network"],
+      cta: "Empower your institution with the right platform.",
     },
   },
 ];
