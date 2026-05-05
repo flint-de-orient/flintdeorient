@@ -13,6 +13,7 @@ interface NavLink {
 interface Partner {
   name: string;
   href?: string;
+  logo?: string;
 }
 
 export interface ResponsiveHeroBannerProps {
@@ -232,9 +233,25 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
               <a
                 key={p.name}
                 href={p.href ?? "#"}
-                className="text-sm md:text-base font-display tracking-wide text-muted-foreground/80 hover:text-gold transition-colors"
+                className="group inline-flex items-center gap-2 transition-colors"
+                aria-label={p.name}
               >
-                {p.name}
+                {p.logo ? (
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    className="h-10 md:h-12 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      filter: "brightness(0) invert(1)",
+                      mixBlendMode: "screen",
+                    }}
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="text-sm md:text-base font-display tracking-wide text-muted-foreground/80 group-hover:text-gold transition-colors">
+                    {p.name}
+                  </span>
+                )}
               </a>
             ))}
           </div>
