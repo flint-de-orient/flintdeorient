@@ -228,25 +228,23 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
             {partnersTitle}
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-10">
             {partners.map((p) => (
               <a
                 key={p.name}
                 href={p.href ?? "#"}
-                className="group inline-flex items-center gap-2 transition-colors"
+                className="group inline-flex items-center gap-3 transition-all"
                 aria-label={p.name}
               >
                 {p.logo ? (
-                  <img
-                    src={p.logo}
-                    alt={`${p.name} logo`}
-                    className="h-10 md:h-12 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-                    style={{
-                      filter: "brightness(0) invert(1)",
-                      mixBlendMode: "screen",
-                    }}
-                    loading="lazy"
-                  />
+                  <span className="inline-flex items-center justify-center h-14 px-4 rounded-xl bg-white/95 ring-1 ring-border/60 group-hover:ring-gold/60 group-hover:shadow-glow-gold transition-all">
+                    <img
+                      src={p.logo}
+                      alt={`${p.name} logo`}
+                      className="max-h-10 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </span>
                 ) : (
                   <span className="text-sm md:text-base font-display tracking-wide text-muted-foreground/80 group-hover:text-gold transition-colors">
                     {p.name}
