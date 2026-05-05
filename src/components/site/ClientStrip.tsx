@@ -3,6 +3,9 @@ import puberkalom from "@/assets/logos/puberkalom_white.png";
 import wbmdfc from "@/assets/logos/wbmdfc_white.png";
 import cooksukh from "@/assets/logos/cooksukh_white.png";
 import easymakan from "@/assets/logos/easymakan_white.png";
+import assamSchool from "@/assets/logos/assam_school_white.png";
+import sikira from "@/assets/logos/sikira_white.png";
+import nawjan from "@/assets/logos/nawjan_white.png";
 
 const clients = [
   { name: "WBSEDCL", logo: wbsedcl },
@@ -10,7 +13,9 @@ const clients = [
   { name: "WBMDFC", logo: wbmdfc },
   { name: "CookSukh", logo: cooksukh },
   { name: "EasyMakan", logo: easymakan },
-  { name: "Sikira" },
+  { name: "Assam School", logo: assamSchool },
+  { name: "Sikira High School", logo: sikira },
+  { name: "Nawjan Institute of Nursing", logo: nawjan },
 ];
 
 export const ClientStrip = () => {
@@ -30,7 +35,7 @@ export const ClientStrip = () => {
                 key={i}
                 src={c.logo}
                 alt={c.name}
-                className="h-12 md:h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-105"
+                className="h-16 md:h-20 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-105"
               />
             ) : (
               <span

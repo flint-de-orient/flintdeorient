@@ -240,7 +240,7 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
                   <img
                     src={p.logo}
                     alt={`${p.name} logo`}
-                    className="h-10 md:h-12 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
+                    className="h-14 md:h-16 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                 ) : (
