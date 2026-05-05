@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -32,8 +32,20 @@ const values = [
 ];
 
 const About = () => {
+  const navigate = useNavigate();
+
+  const handleBack = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.body.style.transition = "opacity 300ms ease";
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+      navigate("/", { state: { scrollTo: "about" } });
+    }, 280);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.opacity = "1";
     document.title = "About — Flint De Orient";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", "Flint De Orient — our mission, goals, and the vision of CEO Sabil Ali for building world-class software and growth systems from Kolkata.");
@@ -44,12 +56,13 @@ const About = () => {
       <Navbar />
       <main className="pt-28 md:pt-36 pb-24">
         <article className="container max-w-3xl">
-          <Link
-            to="/#about"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-12"
+          <a
+            href="/#about"
+            onClick={handleBack}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-12 transition-colors"
           >
-            <ArrowLeft size={16} /> Back to home
-          </Link>
+            <ArrowLeft size={16} /> Back to about section
+          </a>
 
           {/* Header */}
           <header className="mb-20">
