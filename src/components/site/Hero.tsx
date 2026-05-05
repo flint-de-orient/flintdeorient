@@ -1,6 +1,7 @@
 import ResponsiveHeroBanner from "@/components/ui/responsive-hero-banner";
 import logo from "@/assets/flint-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
+import { partners } from "@/data/partners";
 
 export const Hero = () => {
   return (
@@ -17,6 +18,7 @@ export const Hero = () => {
         ctaButtonHref="#contact"
         primaryButtonHref="#contact"
         secondaryButtonHref="#services"
+        partners={partners}
       />
     </div>
   );
