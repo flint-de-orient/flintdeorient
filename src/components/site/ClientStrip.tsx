@@ -1,4 +1,17 @@
-const clients = ["WBSEDCL", "Puber Kalom", "FPA", "JustPizza", "WBMDFC", "CookSukh", "EasyMakan"];
+import wbsedcl from "@/assets/logos/wbsedcl_white.png";
+import puberkalom from "@/assets/logos/puberkalom_white.png";
+import wbmdfc from "@/assets/logos/wbmdfc_white.png";
+import cooksukh from "@/assets/logos/cooksukh_white.png";
+import easymakan from "@/assets/logos/easymakan_white.png";
+
+const clients = [
+  { name: "WBSEDCL", logo: wbsedcl },
+  { name: "Puber Kalom", logo: puberkalom },
+  { name: "WBMDFC", logo: wbmdfc },
+  { name: "CookSukh", logo: cooksukh },
+  { name: "EasyMakan", logo: easymakan },
+  { name: "Sikira" },
+];
 
 export const ClientStrip = () => {
   const list = [...clients, ...clients];
@@ -10,14 +23,23 @@ export const ClientStrip = () => {
         </p>
       </div>
       <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-        <div className="flex gap-16 marquee w-max">
+        <div className="flex gap-16 md:gap-24 marquee w-max items-center">
           {list.map((c, i) => (
-            <span
-              key={i}
-              className="text-2xl md:text-3xl font-bold text-muted-foreground/60 hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              {c}
-            </span>
+            c.logo ? (
+              <img
+                key={i}
+                src={c.logo}
+                alt={c.name}
+                className="h-12 md:h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-105"
+              />
+            ) : (
+              <span
+                key={i}
+                className="text-2xl md:text-3xl font-bold text-muted-foreground/60 hover:text-foreground transition-colors whitespace-nowrap"
+              >
+                {c.name}
+              </span>
+            )
           ))}
         </div>
       </div>

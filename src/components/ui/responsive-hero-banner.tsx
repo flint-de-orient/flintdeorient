@@ -233,20 +233,18 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
               <a
                 key={p.name}
                 href={p.href ?? "#"}
-                className="group inline-flex items-center gap-3 transition-all"
+                className="group inline-flex items-center justify-center transition-all"
                 aria-label={p.name}
               >
                 {p.logo ? (
-                  <span className="inline-flex items-center justify-center h-14 px-4 rounded-xl bg-white/95 ring-1 ring-border/60 group-hover:ring-gold/60 group-hover:shadow-glow-gold transition-all">
-                    <img
-                      src={p.logo}
-                      alt={`${p.name} logo`}
-                      className="max-h-10 w-auto object-contain"
-                      loading="lazy"
-                    />
-                  </span>
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    className="h-10 md:h-12 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 ) : (
-                  <span className="text-sm md:text-base font-display tracking-wide text-muted-foreground/80 group-hover:text-gold transition-colors">
+                  <span className="text-sm md:text-base font-display tracking-wide text-muted-foreground/80 group-hover:text-foreground transition-colors">
                     {p.name}
                   </span>
                 )}

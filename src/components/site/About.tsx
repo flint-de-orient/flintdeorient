@@ -24,7 +24,7 @@ export const About = () => {
                 {[
                   { n: "200+", l: "Projects" },
                   { n: "150+", l: "Clients" },
-                  { n: "10+", l: "Years" },
+                  { n: "3+", l: "Years" },
                 ].map((s) => (
                   <div key={s.l} className="rounded-2xl border border-border/60 p-4">
                     <div className="text-2xl font-bold">{s.n}</div>
