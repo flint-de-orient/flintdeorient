@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Hero } from "@/components/site/Hero";
 import { ClientStrip } from "@/components/site/ClientStrip";
 import { About } from "@/components/site/About";
@@ -11,6 +13,26 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Fade page back in after navigation
+    document.body.style.transition = "opacity 400ms ease";
+    document.body.style.opacity = "1";
+
+    const target =
+      (location.state as { scrollTo?: string } | null)?.scrollTo ||
+      (location.hash ? location.hash.replace("#", "") : null);
+
+    if (target) {
+      // Wait a tick so sections are mounted
+      setTimeout(() => {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <main>
