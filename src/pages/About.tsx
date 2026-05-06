@@ -134,7 +134,7 @@ const About = () => {
               </p>
             </div>
             <div className="mt-10">
-              <p className="font-medium text-foreground">Sabil Ali</p>
+              <p className="font-medium text-foreground">Sabir Ali</p>
               <p className="text-sm text-muted-foreground">Founder &amp; CEO, Flint De Orient</p>
             </div>
           </section>
