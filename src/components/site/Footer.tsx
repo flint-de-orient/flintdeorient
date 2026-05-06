@@ -10,15 +10,33 @@ const socials = [
 const cols = [
   {
     title: "Featured Services",
-    items: ["Custom Software Dev", "SEO", "Mobile App Dev", "Lead Generation", "Consulting & Training"],
+    items: [
+      { label: "Custom Software Dev", href: "/#services" },
+      { label: "SEO", href: "/#services" },
+      { label: "Mobile App Dev", href: "/#services" },
+      { label: "Lead Generation", href: "/#services" },
+      { label: "Consulting & Training", href: "/#services" },
+    ],
   },
   {
     title: "Quick Links",
-    items: ["Home", "Contact", "Privacy Policy", "Disclaimer", "Terms of Use"],
+    items: [
+      { label: "Home", href: "/#home" },
+      { label: "Contact", href: "/#contact" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Disclaimer", href: "#" },
+      { label: "Terms of Use", href: "#" },
+    ],
   },
   {
     title: "Featured Products",
-    items: ["Prime Hospital", "Prime News", "Prime Real Estate", "Prime Spot Billing", "Prime Restaurant"],
+    items: [
+      { label: "Hospital", href: "/products/hospital" },
+      { label: "Hotel", href: "/products/hotel" },
+      { label: "Real Estate", href: "/products/real-estate" },
+      { label: "Accounts", href: "/products/accounts" },
+      { label: "eCommerce", href: "/products/ecommerce" },
+    ],
   },
 ];
 
@@ -63,9 +81,9 @@ export const Footer = () => {
               <h4 className="font-semibold mb-5">{c.title}</h4>
               <ul className="space-y-3">
                 {c.items.map((i) => (
-                  <li key={i}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-gold transition-colors">
-                      {i}
+                  <li key={i.label}>
+                    <a href={i.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">
+                      {i.label}
                     </a>
                   </li>
                 ))}
