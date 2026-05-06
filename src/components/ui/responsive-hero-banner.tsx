@@ -223,35 +223,20 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
           </div>
         </div>
 
-        {/* Partners */}
-        <div className="mt-20 md:mt-28 animate-fade-in-up animation-delay-800">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            {partnersTitle}
+        {/* Scroll teaser */}
+        <a
+          href="#about"
+          className="mt-20 md:mt-28 flex flex-col items-center gap-3 group animate-fade-in-up animation-delay-800"
+        >
+          <p className="text-center text-sm md:text-base text-muted-foreground group-hover:text-foreground transition-colors">
+            Curious how we engineer the future with{" "}
+            <span className="text-gradient-gold font-semibold">AI</span>? Keep scrolling —
+            the magic begins below.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-10">
-            {partners.map((p) => (
-              <a
-                key={p.name}
-                href={p.href ?? "#"}
-                className="group inline-flex items-center justify-center transition-all"
-                aria-label={p.name}
-              >
-                {p.logo ? (
-                  <img
-                    src={p.logo}
-                    alt={`${p.name} logo`}
-                    className="h-14 md:h-16 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="text-sm md:text-base font-display tracking-wide text-muted-foreground/80 group-hover:text-foreground transition-colors">
-                    {p.name}
-                  </span>
-                )}
-              </a>
-            ))}
+          <div className="h-10 w-6 rounded-full border border-gold/40 flex items-start justify-center p-1.5">
+            <span className="h-2 w-1 rounded-full bg-gradient-gold animate-bounce" />
           </div>
-        </div>
+        </a>
       </div>
     </section>
   );
