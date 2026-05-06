@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/flint-logo.png";
 
 const socials = [
@@ -80,13 +81,22 @@ export const Footer = () => {
             <div key={c.title}>
               <h4 className="font-semibold mb-5">{c.title}</h4>
               <ul className="space-y-3">
-                {c.items.map((i) => (
-                  <li key={i.label}>
-                    <a href={i.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">
-                      {i.label}
-                    </a>
-                  </li>
-                ))}
+                {c.items.map((i) => {
+                  const isInternal = i.href.startsWith("/") && !i.href.startsWith("/#");
+                  return (
+                    <li key={i.label}>
+                      {isInternal ? (
+                        <Link to={i.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">
+                          {i.label}
+                        </Link>
+                      ) : (
+                        <a href={i.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">
+                          {i.label}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
