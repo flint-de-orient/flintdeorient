@@ -81,9 +81,9 @@ export const Footer = () => {
               <h4 className="font-semibold mb-5">{c.title}</h4>
               <ul className="space-y-3">
                 {c.items.map((i) => (
-                  <li key={i}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-gold transition-colors">
-                      {i}
+                  <li key={i.label}>
+                    <a href={i.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">
+                      {i.label}
                     </a>
                   </li>
                 ))}
