@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { ClientStrip } from "@/components/site/ClientStrip";
 import { About } from "@/components/site/About";
@@ -35,6 +36,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <Navbar />
       <main>
         <Hero />
         <ClientStrip />

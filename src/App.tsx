@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ProductBlog from "./pages/ProductBlog.tsx";
 import About from "./pages/About.tsx";
+import LegalPage from "./pages/LegalPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/products/:slug" element={<ProductBlog />} />
           <Route path="/about" element={<About />} />
+          <Route path="/privacy-policy" element={<LegalPage slug="privacy-policy" />} />
+          <Route path="/disclaimer" element={<LegalPage slug="disclaimer" />} />
+          <Route path="/terms-of-use" element={<LegalPage slug="terms-of-use" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

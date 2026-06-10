@@ -24,9 +24,9 @@ const cols = [
     items: [
       { label: "Home", href: "/#home" },
       { label: "Contact", href: "/#contact" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Disclaimer", href: "#" },
-      { label: "Terms of Use", href: "#" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Disclaimer", href: "/disclaimer" },
+      { label: "Terms of Use", href: "/terms-of-use" },
     ],
   },
   {

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ArrowRight, Play, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { WavesBackground } from "@/components/ui/waves-background";
 
 interface NavLink {
   label: string;
@@ -85,21 +86,23 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
     >
       {/* Background layers */}
       <div className="absolute inset-0 -z-10 bg-background" />
-      {backgroundImageUrl && (
-        <div
-          className="absolute inset-0 -z-10 bg-cover bg-center opacity-70"
-          style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-        />
-      )}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+      <WavesBackground className="absolute inset-0 -z-10 h-full w-full" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/20 via-background/50 to-background" />
       <div className="absolute inset-0 -z-10 grid-bg opacity-20" />
       <div
         className="absolute inset-0 -z-10"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, hsl(var(--gold) / 0.18), transparent 60%), radial-gradient(ellipse 60% 50% at 80% 100%, hsl(var(--gold-deep) / 0.15), transparent 60%)",
+            "radial-gradient(ellipse 90% 60% at 50% -10%, hsl(var(--gold) / 0.30), transparent 60%), radial-gradient(ellipse 70% 60% at 15% 110%, hsl(var(--gold-deep) / 0.25), transparent 60%), radial-gradient(ellipse 60% 50% at 85% 100%, hsl(var(--gold) / 0.20), transparent 60%)",
         }}
       />
+
+      {/* Golden glow orbs */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute left-1/2 top-1/3 h-[520px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/20 blur-[140px] animate-pulse-glow" />
+        <div className="absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-gold-deep/30 blur-3xl animate-float" />
+        <div className="absolute -right-16 bottom-16 h-80 w-80 rounded-full bg-gold/20 blur-3xl animate-float [animation-delay:2s]" />
+      </div>
 
 
       {/* Nav */}
