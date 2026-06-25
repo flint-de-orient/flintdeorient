@@ -6,6 +6,8 @@ import easymakan from "@/assets/logos/easymakan_white.png";
 import assamSchool from "@/assets/logos/assam_school_white.png";
 import sikira from "@/assets/logos/sikira_white.png";
 import nawjan from "@/assets/logos/nawjan_white.png";
+import flintbox from "@/assets/logos/flintbox_white.png";
+import ledgerit from "@/assets/logos/ledgerit_white.png";
 
 const clients = [
   { name: "WBSEDCL", logo: wbsedcl },
@@ -16,6 +18,8 @@ const clients = [
   { name: "Assam School", logo: assamSchool },
   { name: "Sikira High School", logo: sikira },
   { name: "Nawjan Institute of Nursing", logo: nawjan },
+  { name: "FlintBox", logo: flintbox },
+  { name: "LedgerIT", logo: ledgerit },
 ];
 
 export const ClientStrip = () => {

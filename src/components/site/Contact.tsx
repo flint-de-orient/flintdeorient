@@ -7,14 +7,32 @@ import { toast } from "sonner";
 
 export const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [sending, setSending] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thanks! We'll be in touch within 24 hours.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    if (sending) return;
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+      toast.success("Thanks! We'll be in touch within 24 hours. Check your inbox for a confirmation.");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not send your message. Please try again later.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -38,8 +56,8 @@ export const Contact = () => {
             </div>
             <Input name="phone" value={form.phone} onChange={onChange} placeholder="Phone number" className="h-12 bg-background/60 border-border" />
             <Textarea name="message" value={form.message} onChange={onChange} placeholder="Tell us about your project..." rows={5} required className="bg-background/60 border-border resize-none" />
-            <Button variant="hero" size="lg" type="submit" className="w-full">
-              Send Message
+            <Button variant="hero" size="lg" type="submit" className="w-full" disabled={sending}>
+              {sending ? "Sending..." : "Send Message"}
             </Button>
           </form>
 
