@@ -15,6 +15,7 @@ const {
   GMAIL_APP_PASSWORD,
   ADMIN_EMAIL,
   WEBSITE_URL = "https://flintdeorient.com",
+  LOGO_URL = "",
   PORT = 3001,
 } = process.env;
 
@@ -60,13 +61,15 @@ const fill = (template, data) =>
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "");
 
-// Logo embedded inline (CID) so it always renders and there is no broken
-// external image — a broken/hot-linked image hurts deliverability.
-const logoAttachment = {
-  filename: "logo.png",
-  path: logoPath,
-  cid: "flintlogo",
-};
+// Logo source:
+//  - If LOGO_URL is set (e.g. a Cloudinary URL), the template uses that hosted
+//    image and NOTHING is attached to the email (no "logo.png" attachment).
+//  - If LOGO_URL is blank, the logo is embedded inline via CID so it always
+//    renders even when a client blocks remote images.
+const logoSrc = LOGO_URL || "cid:flintlogo";
+const logoAttachments = LOGO_URL
+  ? []
+  : [{ filename: "logo.png", path: logoPath, cid: "flintlogo" }];
 
 // --- routes ----------------------------------------------------------------
 
@@ -97,6 +100,7 @@ app.post("/api/contact", async (req, res) => {
     phone: escapeHtml(phone || "Not provided"),
     project_details: escapeHtml(message),
     website_url: WEBSITE_URL,
+    logo_url: logoSrc,
   };
 
   try {
@@ -113,7 +117,7 @@ app.post("/api/contact", async (req, res) => {
         `New project inquiry from the website\n\n` +
         `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\n` +
         `Project Description:\n${message}\n`,
-      attachments: [logoAttachment],
+      attachments: logoAttachments,
     });
 
     // 2) Confirmation / thank-you to the user.
@@ -133,7 +137,7 @@ app.post("/api/contact", async (req, res) => {
         `We look forward to bringing your vision to life.\n\n` +
         `Visit us: ${WEBSITE_URL}\n\n` +
         `— Flint De Orient`,
-      attachments: [logoAttachment],
+      attachments: logoAttachments,
     });
 
     return res.json({ ok: true });

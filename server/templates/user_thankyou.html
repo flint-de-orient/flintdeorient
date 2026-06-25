@@ -77,8 +77,8 @@
 <body>
     <div class="email-container">
         <div class="header">
-            <!-- Logo is embedded inline via CID so it always renders without an external host -->
-            <img src="cid:flintlogo" alt="Flint De Orient Logo">
+            <!-- Logo source comes from the server: a hosted URL (e.g. Cloudinary) when LOGO_URL is set, otherwise an inline CID image -->
+            <img src="{{logo_url}}" alt="Flint De Orient Logo">
         </div>
         <div class="content">
             <h2>Thank You for Reaching Out!</h2>
