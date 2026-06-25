@@ -5,6 +5,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Button } from "@/components/ui/button";
 import { getLegalDoc } from "@/data/legal";
+import { useSEO } from "@/lib/seo";
 
 interface LegalPageProps {
   slug: string;
@@ -13,14 +14,16 @@ interface LegalPageProps {
 const LegalPage = ({ slug }: LegalPageProps) => {
   const doc = getLegalDoc(slug);
 
+  useSEO({
+    title: doc?.title ?? "Not found",
+    path: `/${slug}`,
+    description: doc?.intro ?? "",
+    noindex: !doc,
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.opacity = "1";
-    if (doc) {
-      document.title = `${doc.title} — Flint De Orient`;
-      const meta = document.querySelector('meta[name="description"]');
-      if (meta) meta.setAttribute("content", doc.intro);
-    }
   }, [doc]);
 
   if (!doc) {

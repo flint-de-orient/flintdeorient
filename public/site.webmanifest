@@ -1,0 +1,16 @@
+{
+  "name": "Flint De Orient",
+  "short_name": "Flint De Orient",
+  "description": "Business automation, ERP, CRM, custom software, AI solutions, and digital marketing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -5,18 +5,46 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { getProduct } from "@/data/products";
 import { useEffect } from "react";
+import { useSEO, SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 const ProductBlog = () => {
   const { slug = "" } = useParams();
   const product = getProduct(slug);
 
+  useSEO(
+    product
+      ? {
+          title: `${product.name} Software`,
+          path: `/products/${slug}`,
+          description: `${product.blog.tagline} ${product.desc}`,
+          type: "article",
+          jsonLd: {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Product",
+                name: `${product.name} — Flint De Orient`,
+                description: product.blog.tagline,
+                image: OG_IMAGE,
+                brand: { "@type": "Brand", name: SITE_NAME },
+                url: `${SITE_URL}/products/${slug}`,
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                  { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/#products` },
+                  { "@type": "ListItem", position: 3, name: product.name, item: `${SITE_URL}/products/${slug}` },
+                ],
+              },
+            ],
+          },
+        }
+      : { title: "Product not found", noindex: true }
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (product) {
-      document.title = `${product.name} — Flint De Orient`;
-      const meta = document.querySelector('meta[name="description"]');
-      if (meta) meta.setAttribute("content", product.blog.tagline);
-    }
   }, [product]);
 
   if (!product) {

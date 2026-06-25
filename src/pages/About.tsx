@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { useSEO } from "@/lib/seo";
 
 const stats = [
   { n: "12K+", l: "Clients served" },
@@ -68,16 +69,16 @@ const About = () => {
     }, 280);
   };
 
+  useSEO({
+    title: "About Us",
+    path: "/about",
+    description:
+      "Flint De Orient — our mission, goals, and the vision of CEO Sabir Ali for building world-class software and growth systems from Kolkata.",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.opacity = "1";
-    document.title = "About — Flint De Orient";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta)
-      meta.setAttribute(
-        "content",
-        "Flint De Orient — our mission, goals, and the vision of CEO Sabir Ali for building world-class software and growth systems from Kolkata."
-      );
   }, []);
 
   return (

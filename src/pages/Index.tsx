@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useSEO } from "@/lib/seo";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { ClientStrip } from "@/components/site/ClientStrip";
@@ -15,6 +16,8 @@ import { Footer } from "@/components/site/Footer";
 
 const Index = () => {
   const location = useLocation();
+
+  useSEO({ path: "/" });
 
   useEffect(() => {
     // Fade page back in after navigation
