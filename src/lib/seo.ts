@@ -29,7 +29,7 @@ export const ORGANIZATION_SCHEMA = {
   },
   sameAs: [
     "https://instagram.com/flint_de_orient",
-    "https://facebook.com/flintdeorient",
+    "https://www.facebook.com/profile.php?id=61570724766834",
     "https://www.linkedin.com/company/flint-de-orient",
   ],
 };

@@ -4,7 +4,7 @@ import logo from "@/assets/flint-logo.png";
 
 const socials = [
   { label: "Instagram", handle: "@flint_de_orient", href: "https://instagram.com/flint_de_orient", Icon: Instagram },
-  { label: "Facebook", handle: "Flint De Orient", href: "https://facebook.com/flintdeorient", Icon: Facebook },
+  { label: "Facebook", handle: "Flint De Orient", href: "https://www.facebook.com/profile.php?id=61570724766834", Icon: Facebook },
   { label: "LinkedIn", handle: "Flint De Orient", href: "https://www.linkedin.com/company/flint-de-orient", Icon: Linkedin },
 ];
 
